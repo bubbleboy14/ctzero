@@ -24,11 +24,11 @@ zero.core.Appliance.Leaker = CT.Class({
 	init: function(opts) {
 		this.opts = CT.merge(opts, {
 			puddle: {
-				radius: 100
+				halfSphere: 30
 			},
 			drip: {
 				rate: 5000,
-				size: 0.05
+				size: 0.01
 			}
 		}, this.opts);
 	}
