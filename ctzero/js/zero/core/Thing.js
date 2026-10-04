@@ -376,7 +376,7 @@ zero.core.Thing = CT.Class({
 		for (aud in auds)
 			if (myauds.includes(aud))
 				this._audios[aud] = auds[aud].map(a => zero.core.audio.ambience(a, 0.1));
-		this.ambience(myauds[0]);
+		oz.ambon && this.ambience(myauds[0]);
 	},
 	playSong: function(song, onPlaySong) {
 		if (!this._audio) {
@@ -1193,6 +1193,7 @@ zero.core.Thing = CT.Class({
 			onbuild: null, // also supports: "onassemble", "onremove" ....
 			scroll: null,
 			shift: null,
+			ambon: true,
 			grippy: true,
 			climby: false,
 			frustumCulled: true,
