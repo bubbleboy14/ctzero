@@ -38,14 +38,6 @@ zero.core.Appliance.Washer = CT.Class({
 		this.diode.setColor(this.power ? (this._on ? 0x00ff00 : 0xff0000) : 0x000000);
 		this.ambience(this.power && this._on ? "washer" : null);
 	},
-	setAmbs: function() {
-		// base setAmbs() autoplays ambients[0] right away, which would briefly run the
-		// washer sound on load since (unlike WaterHeater's whoff/whon pair) there's only
-		// one clip here and it means "on" - populate this._audios but let setMode() (via
-		// the circuit/power resolution in onready()) decide the real initial state
-		zero.core.Thing.prototype.setAmbs.call(this);
-		this.ambience(null);
-	},
 	preassemble: function() {
 		const oz = this.opts, pz = oz.parts, roz = zero.core.current.room.opts;
 		pz.push(CT.merge(oz.cabinet, {
@@ -105,6 +97,7 @@ zero.core.Appliance.Washer = CT.Class({
 	},
 	init: function(opts) {
 		this.opts = CT.merge(opts, {
+			ambon: false,
 			ambients: ["washer"],
 			audroot: "zero.core.Appliance"
 		}, this.opts);
