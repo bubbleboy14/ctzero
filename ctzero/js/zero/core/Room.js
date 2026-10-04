@@ -5,16 +5,16 @@ zero.core.Room = CT.Class({
 		objects: 0
 	},
 	_tickers: [],
-	_electrical: ["panel", "bulb", "gate", "elevator", "computer", "waterheater"],
+	_electrical: ["panel", "bulb", "gate", "elevator", "computer", "waterheater", "washer", "dryer"],
 	_structural: ["obstacle", "floor", "wall", "ramp", "stairs", "curtain", "boulder", "stala", "clutter"],
 	_surfaces: ["obstacle", "floor", "ramp", "stairs", "boulder", "stala", "elevator"],
-	_bumpers: ["wall", "obstacle", "boulder", "stala", "gate", "waterheater"],
+	_bumpers: ["wall", "obstacle", "boulder", "stala", "gate", "waterheater", "washer", "dryer"],
 	_wallers: ["ramp", "elevator"],
 	_wallerers: ["wall", "gate"],
-	_controllable: ["elevator", "waterheater"],
-	_togglable: ["waterheater"],
+	_controllable: ["elevator", "waterheater", "washer", "dryer"],
+	_togglable: ["waterheater", "washer", "dryer"],
 	_usable: ["computer"],
-	_openable: ["gate"],
+	_openable: ["gate", "washer", "dryer"],
 	_interactives: {
 		brittle: ["boulder", "stala"],
 		frozen: ["boulder", "stala"],
@@ -168,7 +168,7 @@ zero.core.Room = CT.Class({
 		return isec && isec.point.y;
 	},
 	getTop: function(pos) {
-		return this.shelled ? this.dynFloor(pos) : this.bounds.min.y + 1;
+		return this.shelled ? this.dynFloor(pos) : this.getBounds().min.y + 1;
 	},
 	within: function(pos, radii, checkY, kind, prop) {
 		kind = kind || "elemental";

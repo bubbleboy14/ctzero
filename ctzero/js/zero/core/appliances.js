@@ -9,3 +9,5 @@ CT.require("zero.core.Appliance.Computer");
 
 CT.require("zero.core.Appliance.Leaker");
 CT.require("zero.core.Appliance.WaterHeater");
+CT.require("zero.core.Appliance.Washer");
+CT.require("zero.core.Appliance.Dryer");
