@@ -51,9 +51,21 @@ zero.core.Appliance.Dryer = CT.Class({
 			name: "door",
 			boxGeometry: true,
 			scale: [44, 50, 4],
-			position: [0, -10, 30],
+			position: [0, 0, 30],
 			castShadow: roz.shadows,
 			receiveShadow: roz.shadows
+		}));
+		// drum opening - a flat dark disk sized to sit entirely within the door's closed
+		// footprint (44 wide x 50 tall, same x/y center) so it's hidden while closed and
+		// revealed once the door swings open, instead of an empty cabinet front
+		pz.push(CT.merge(oz.drum, {
+			name: "drum",
+			circleGeometry: 18,
+			position: [0, 0, 30.5],
+			material: {
+				color: 0x000000,
+				shininess: 5
+			}
 		}));
 		// raised back console, like a real dryer's controls - sits on the cabinet top,
 		// well clear of the front door below (cabinet top: y=35, back face: z=-30)

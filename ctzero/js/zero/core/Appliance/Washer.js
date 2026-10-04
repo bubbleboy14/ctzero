@@ -63,6 +63,19 @@ zero.core.Appliance.Washer = CT.Class({
 			castShadow: roz.shadows,
 			receiveShadow: roz.shadows
 		}));
+		// drum opening - a flat dark disk sized to sit entirely within the lid's closed
+		// footprint (52 wide x 28 deep, centered at the same z=16) so it's hidden while
+		// closed and revealed once the lid swings open, instead of an empty cabinet top
+		pz.push(CT.merge(oz.drum, {
+			name: "drum",
+			circleGeometry: 11,
+			rotation: [-Math.PI / 2, 0, 0],
+			position: [0, 35.5, 16],
+			material: {
+				color: 0x000000,
+				shininess: 5
+			}
+		}));
 		// raised back console, like a real washer's controls - sits on the cabinet top
 		// behind the lid (cabinet top: y=35, back face: z=-30)
 		pz.push(CT.merge(oz.console, {
